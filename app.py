@@ -3,8 +3,9 @@ from algo import get_times
 from flask_cors import CORS
 from flask import request
 
-
+port = int(os.environ.get('PORT', 5000))
 app = Flask(__name__)
+app.port = port
 CORS(app)
 
 @app.route('/api/appointments', methods=['GET'])
@@ -19,4 +20,4 @@ def schedule_patient():
     return jsonify(data_str)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=port)
