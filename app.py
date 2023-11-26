@@ -8,6 +8,8 @@ port = int(os.environ.get('PORT', 5000))
 app = Flask(__name__)
 app.port = port
 CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 
 @app.route('/api/appointments', methods=['GET'])
 def get_appointments():
