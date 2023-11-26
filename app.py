@@ -4,7 +4,7 @@ from flask_cors import CORS
 from flask import request
 import os
 
-port = int(os.environ.get('PORT', 5000))
+port = int(os.environ.get('PORT', 5001))
 app = Flask(__name__)
 app.port = port
 CORS(app)
@@ -23,4 +23,4 @@ def schedule_patient():
     return jsonify(data_str)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=port)
+    app.run(debug=True, port=port, host='0.0.0.0')
